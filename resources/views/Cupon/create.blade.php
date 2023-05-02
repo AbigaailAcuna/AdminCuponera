@@ -33,9 +33,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="codigo">Codigo de la empresa:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" name="IdEmpresaR" id="IdEmpresaR" value="{{old('IdEmpresaR')}}"  placeholder="Ingresa el codigo de la empresa" >
+                <label for="nombre">Código de Empresa:</label>
+                <div class="input-group"> 
+                <select class="form-control" name="IdEmpresaR" id="IdEmpresaR">
+                    <option value="">Seleccione una empresa</option>
+                    @foreach($empresas as $empresa)
+                        <option class="form-control" value="{{ $empresa->IdEmpresaR }}">{{ $empresa->NombreEmpresa }}</option>
+                    @endforeach
+                </select>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
@@ -71,21 +76,21 @@
             <div class="form-group">
                 <label for="nacionalidad">Fecha de inicio:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaInicio" name="FechaInicio" value="{{old('FechaInicio')}}"   placeholder="Ingresa la fecha de inicio">
+                    <input type="date" class="form-control" id="FechaInicio" name="FechaInicio" value="{{old('FechaInicio')}}"   placeholder="Ingresa la fecha de inicio">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="nacionalidad">Fecha Fin:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaFin" name="FechaFin"  value="{{old('FechaFin')}}"  placeholder="Ingresa la fecha de fin">
+                    <input type="date" class="form-control" id="FechaFin" name="FechaFin"  value="{{old('FechaFin')}}"  placeholder="Ingresa la fecha de fin">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="nacionalidad">Fecha Limite de Uso:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaLimiteUso" name="FechaLimiteUso" value="{{old('FechaLimiteUso')}}"   placeholder="Ingresa la fecha limite de uso">
+                    <input type="date" class="form-control" id="FechaLimiteUso" name="FechaLimiteUso" value="{{old('FechaLimiteUso')}}"   placeholder="Ingresa la fecha limite de uso">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>

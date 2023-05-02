@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cuponr;
+use App\Models\Empresar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,8 @@ class CuponController extends Controller
      */
     public function create()
     {
-        return view('Cupon.create');
+        $empresas=Empresar::get();
+        return view('Cupon.create',compact('empresas'));
     }
 
     /**
