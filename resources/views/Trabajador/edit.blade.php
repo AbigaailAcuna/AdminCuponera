@@ -30,8 +30,15 @@
         </div>
         <div class="form-group">
             <label for="nombre">Código de Empresa:</label>
-            <div class="input-group">
-                <input type="text" class="form-control" name="IdEmpresaR" id="IdEmpresaR"  value="{{old('IdEmpresaR',$trabajador->IdEmpresaR)}}"    placeholder="Ingresa el código de la empresa" >
+            <div class="input-group"> 
+            <select class="form-control" name="IdEmpresaR" id="IdEmpresaR">
+                <option class="form-control" id="IdCategeoria" value="{{ $EmpresaSeleccionada->IdEmpresaR }}" selected>{{ $EmpresaSeleccionada->NombreEmpresa }}</option>
+                @foreach($empresas as $empresa)
+                    @if($empresa->IdEmpresaR!==$EmpresaSeleccionada->IdEmpresaR)
+                        <option class="form-control" value="{{ $empresa->IdEmpresaR }}" @if($empresa->IdEmpresaR == old('IdEmpresaR', $trabajador->IdCategeoria)) selected @endif>{{ $empresa->NombreEmpresa }}</option>
+                    @endif   
+                @endforeach
+            </select>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>

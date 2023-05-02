@@ -84,8 +84,9 @@ class TrabajadorController extends Controller
      */
     public function edit(Empleado $trabajador)
     {
-        //
-        return view('Trabajador.edit',compact('trabajador'));
+        $empresas=Empresar::get();
+        $EmpresaSeleccionada = Empresar::findOrFail($trabajador->IdEmpresaR);
+        return view('Trabajador.edit',compact('trabajador','empresas','EmpresaSeleccionada'));
     }
 
     /**
