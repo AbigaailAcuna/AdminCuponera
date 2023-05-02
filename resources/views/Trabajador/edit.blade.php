@@ -24,7 +24,7 @@
         <div class="form-group">
             <label for="codigo">Codigo de Empleado:</label>
             <div class="input-group">
-                <input type="text" class="form-control" name="IdEmpleado" id="IdEmpleado" value="{{old('IdEmpleado',$trabajador->IdEmpleado)}}" placeholder="Ingresa el codigo del Empleado" >
+                <input type="text" class="form-control" name="IdEmpleado" id="IdEmpleado" value="{{old('IdEmpleado',$trabajador->IdEmpleado)}}" placeholder="Ingresa el codigo del Empleado" readonly>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>
