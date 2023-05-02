@@ -35,7 +35,7 @@
                 <select class="form-control" name="IdEmpresaR" id="IdEmpresaR">
                     <option value="">Seleccione una empresa</option>
                     @foreach($empresas as $empresa)
-                        <option class="form-control" value="{{ $empresa->IdEmpresaR }}">{{ $empresa->NombreEmpresa }}</option>
+                        <option class="form-control" value="{{$empresa->IdEmpresaR}}">{{ $empresa->NombreEmpresa }}</option>
                     @endforeach
                 </select>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
