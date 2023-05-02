@@ -31,6 +31,8 @@
             <th>Imagen</th>
             <th>Cantidad Vendido</th>
             <th>Estado</th>
+            <th>Opciones</th>
+            
             
                 
         </tr>

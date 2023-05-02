@@ -4,11 +4,14 @@
 
 @section('content')
 <head>
+    @section('title2','Ofertando Cupón')
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
   
-<div class="row">
-    <div class=" col-md-7">
+<div class="container">
+    
+    <div class="row-center">
+        
        @if($errors->all())
         <div class="alert alert-danger">
             <ul>
@@ -18,13 +21,8 @@
             </ul>
         </div>
        @endif
-
-       <style>
-        
-       </style>
-       <div class="container">
-        <div class="row">
-            <div class="col-md-7">
+     <div class="col-md-7">
+    
        <form role="form" action="{{route('cupon.store')}}" method="POST">
             @csrf
             <div class="form-group">
@@ -145,8 +143,6 @@
             });
         </script>
         <?php endif; ?> 
-       </div>
-       </div>
        </div>
     </div>
 @endsection
