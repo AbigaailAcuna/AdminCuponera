@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Empresar;
 use Illuminate\Http\Request;
 
 class TrabajadorController extends Controller
@@ -21,8 +22,8 @@ class TrabajadorController extends Controller
      */
     public function create()
     {
-        //
-        return view('Trabajador.create');
+        $empresas=Empresar::get();
+        return view('Trabajador.create',compact('empresas'));
     }
 
     /**

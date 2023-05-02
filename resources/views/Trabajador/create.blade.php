@@ -31,8 +31,13 @@
             </div>
             <div class="form-group">
                 <label for="nombre">Código de Empresa:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" name="IdEmpresaR" id="IdEmpresaR"  value="{{old('IdEmpresaR')}}"    placeholder="Ingresa el código de la empresa" >
+                <div class="input-group"> 
+                <select class="form-control" name="IdEmpresaR" id="IdEmpresaR">
+                    <option value="">Seleccione una empresa</option>
+                    @foreach($empresas as $empresa)
+                        <option class="form-control" value="{{ $empresa->IdEmpresaR }}">{{ $empresa->NombreEmpresa }}</option>
+                    @endforeach
+                </select>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
