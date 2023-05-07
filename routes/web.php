@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\CuponController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TrabajadorController;
 
 /*
