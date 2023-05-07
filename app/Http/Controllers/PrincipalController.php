@@ -23,6 +23,9 @@ class PrincipalController extends Controller
     public function categorias(){
         return view('Categoria.index');
     }
+    public function clientes(){
+        return view('Cliente.index');
+    }
     public function trabajadores(){
         return view('Trabajador.index');
     }
