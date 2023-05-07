@@ -41,4 +41,9 @@ class Ventum extends Model
 		'FechaCompra',
 		'Estado'
 	];
+    
+    public function cuponv()
+	{
+		return $this->hasMany(Cuponv::class, 'IdCupon');
+	}
 }
