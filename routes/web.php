@@ -44,13 +44,21 @@ Route::controller(EmpresaController::class)->group(function()
     Route::get('/esperas/{id}','espera');
     Route::get('/descartados/{id}','descartado');
     Route::get('/rechazados/{id}','rechazado');
-
-    
     
 }
+);
+Route::controller(ClienteController::class)->group(function()
+{
+    Route::get('/disponible/{id}','active');
+    Route::get('/canjeado/{id}','canjeado');
+    Route::get('/vencido/{id}','vencido');
+
+}
+
 );
 
 Route::resource('empresa', EmpresaController::class);
 Route::resource('cupon', CuponController::class);
 Route::resource('categoria', CategoriaController::class);
 Route::resource('trabajador', TrabajadorController::class);
+Route::resource('cliente', ClienteController::class);
