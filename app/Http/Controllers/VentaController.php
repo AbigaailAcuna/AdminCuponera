@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ventum;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -11,7 +12,8 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        $Ventas=Ventum::get();
+        return view('Venta.index',compact('Ventas'));
     }
 
     /**

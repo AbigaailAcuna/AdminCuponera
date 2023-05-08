@@ -41,9 +41,9 @@ class Cuponr extends Model
 		'PrecioRegular' => 'float',
 		'PrecioOferta' => 'float',
 		'PrecioCupon' => 'float',
-		'FechaInicio' => 'datetime',
-		'FechaFin' => 'datetime',
-		'FechaLimiteUso' => 'datetime',
+		'FechaInicio' => 'date',
+		'FechaFin' => 'date',
+		'FechaLimiteUso' => 'date',
 		'Disponibilidad' => 'int',
 		'CantidadVendido' => 'int',
 		'Estado' => 'int'

@@ -38,7 +38,7 @@
                         <td>{{ $canjeado->FechaFin }}</td>
                         <td>{{ $canjeado->FechaLimiteUso }}</td>
                         <td>{{ $canjeado->Descripcion }}</td>
-                        <td>{{ $canjeado->FechaCompra }}</td>
+                        <td>{{ $canjeado->FechaCompra->format('Y-m-d') }}</td>
                           
                      </tr>
             @endforeach

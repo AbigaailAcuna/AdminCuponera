@@ -43,14 +43,14 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="nacionalidad">Nombres:</label>
+            <label for="texto">Nombres:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Nombres" name="Nombres" value="{{old('Nombres',$trabajador->Nombres)}}"  placeholder="Ingresa el nombre del Empleado">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>
         <div class="form-group">
-            <label for="nacionalidad">Apellidos:</label>
+            <label for="texto">Apellidos:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Apellidos" name="Apellidos" value="{{old('Apellidos',$trabajador->Apellidos)}}"   placeholder="Ingresa el apellido del Empleado">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
@@ -58,28 +58,28 @@
         </div>
         
         <div class="form-group">
-            <label for="nacionalidad">Teléfono:</label>
+            <label for="texto">Teléfono:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Telefono" name="Telefono" value="{{old('Telefono',$trabajador->Telefono)}}"   placeholder="Ingresa el numero de telefono">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>
         <div class="form-group">
-            <label for="nacionalidad">Correo:</label>
+            <label for="texto">Correo:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Correo" name="Correo" value="{{old('Correo',$trabajador->Correo)}}"   placeholder="Ingresa el correo">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>
         <div class="form-group">
-            <label for="nacionalidad">Rubro:</label>
+            <label for="texto">Rubro:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Rubro" name="Rubro" value="{{old('Rubro',$trabajador->Rubro)}}"  placeholder="Ingresa el Rubro">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>   
         <div class="form-group">
-            <label for="nacionalidad">Clave:</label>
+            <label for="texto">Clave:</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="Clave" name="Clave" value="{{old('Clave',$trabajador->Clave)}}"  placeholder="Ingresa su clave">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>

@@ -1,3 +1,4 @@
+
 @extends('Layouts.template')
 
 @section('title','Lista de Cupones')
@@ -13,7 +14,9 @@
         <a class="btn btn-primary" href="{{ route('cupon.create')}}"><i class="bi bi-plus-circle"></i> Ofertar Cupon</a>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
         <div class="row">
+
     @if ($cupon)
+  
     <table class="table table-condensed table-bordered">
         <tr>
             <th>Codigo</th>
@@ -37,6 +40,7 @@
                 
         </tr>
         @foreach ($cupon as $cup)
+      
         <tr>
             <td>{{$cup->IdCuponR}}</td>
             <td>{{$cup->IdEmpresaR}}</td>
@@ -44,9 +48,9 @@
             <td>{{$cup->PrecioRegular}}</td>
             <td>{{$cup->PrecioOferta}}</td>
             <td>{{$cup->PrecioCupon}}</td>
-            <td>{{$cup->FechaInicio}}</td>
-            <td>{{$cup->FechaFin}}</td>
-            <td>{{$cup->FechaLimiteUso}}</td>
+            <td>{{$cup->FechaInicio->format('Y-m-d')}}</td>
+            <td>{{$cup->FechaFin->format('Y-m-d')}}</td>
+            <td>{{$cup->FechaLimiteUso->format('Y-m-d')}}</td>
             <td>{{$cup->Descripcion}}</td>
             <td>{{$cup->OtrosDetalles}}</td>
             <td>{{$cup->Disponibilidad}}</td>

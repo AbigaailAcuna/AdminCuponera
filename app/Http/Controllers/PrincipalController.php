@@ -29,6 +29,9 @@ class PrincipalController extends Controller
     public function trabajadores(){
         return view('Trabajador.index');
     }
+    public function venta(){
+        return view('Venta.index');
+    }
     
     /**
      * Show the form for creating a new resource.

@@ -100,7 +100,7 @@ class ClienteController extends Controller
         $activoOffer = Ventum::with('cuponv')
             ->join('cuponv', 'cuponv.IdVenta', '=', 'venta.IdVenta')
             ->join('cuponr', 'cuponr.IdCuponR', '=', 'cuponv.IdCupon')
-            ->where('venta.Estado', 1)
+            ->where('cuponv.Estado', 1)
             ->where('venta.IdCliente', $id)
             ->get();
                if ($activoOffer->isEmpty()) {
@@ -118,7 +118,7 @@ class ClienteController extends Controller
         $canjeadoOffer = Ventum::with('cuponv')
             ->join('cuponv', 'cuponv.IdVenta', '=', 'venta.IdVenta')
             ->join('cuponr', 'cuponr.IdCuponR', '=', 'cuponv.IdCupon')
-            ->where('venta.Estado', 2)
+            ->where('cuponv.Estado', 2)
             ->where('venta.IdCliente', $id)
             ->get();
                if ($canjeadoOffer->isEmpty()) {
@@ -133,10 +133,11 @@ class ClienteController extends Controller
 
     }
     public function vencido(string $id){
+        $date=date('Y-m-d');
         $vencidoOffer = Ventum::with('cuponv')
             ->join('cuponv', 'cuponv.IdVenta', '=', 'venta.IdVenta')
             ->join('cuponr', 'cuponr.IdCuponR', '=', 'cuponv.IdCupon')
-            ->where('venta.Estado', 3)
+            ->where('cuponr.FechaFin', '<', $date)
             ->where('venta.IdCliente', $id)
             ->get();
                if ($vencidoOffer->isEmpty()) {

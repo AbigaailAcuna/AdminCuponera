@@ -57,14 +57,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Direccion:</label>
+                <label for="texto">Direccion:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Direccion" name="Direccion" value="{{old('Direccion',$empresa->Direccion)}}"   placeholder="Ingresa la direccion">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">NombreContacto:</label>
+                <label for="texto">NombreContacto:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="NombreContacto" name="NombreContacto" value="{{old('NombreContacto',$empresa->NombreContacto)}}"   placeholder="Ingresa el nombre del contacto">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
@@ -72,21 +72,21 @@
             </div>
             
             <div class="form-group">
-                <label for="nacionalidad">Telefono:</label>
+                <label for="texto">Telefono:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Telefono" name="Telefono" value="{{old('Telefono',$empresa->Telefono)}}"   placeholder="Ingresa el numero de telefono">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Correo:</label>
+                <label for="texto">Correo:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Correo" name="Correo" value="{{old('Correo',$empresa->Correo)}}"   placeholder="Ingresa el correo">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Comision:</label>
+                <label for="texto">Comision:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Comision" name="Comision" value="{{old('Comision',$empresa->Comision)}}"   placeholder="Ingresa la comision">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>

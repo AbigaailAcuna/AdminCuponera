@@ -49,14 +49,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Precio Regular:</label>
+                <label for="texto">Precio Regular:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="PrecioRegular" name="PrecioRegular" value="{{old('PrecioRegular',$cupon->PrecioRegular)}}"   placeholder="Ingresa el precio regular">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Precio Oferta:</label>
+                <label for="texto">Precio Oferta:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="PrecioOferta" name="PrecioOferta" value="{{old('PrecioOferta',$cupon->PrecioOferta)}}"   placeholder="Ingresa el precio de oferta">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
@@ -64,70 +64,76 @@
             </div>
             
             <div class="form-group">
-                <label for="nacionalidad">Precio Cupon:</label>
+                <label for="texto">Precio Cupon:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="PrecioCupon" name="PrecioCupon" value="{{old('PrecioCupon',$cupon->PrecioCupon)}}"   placeholder="Ingresa el precio del cupon">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Fecha de inicio:</label>
+                <label for="texto">Fecha de inicio:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaInicio" name="FechaInicio" value="{{old('FechaInicio',$cupon->FechaInicio)}}"   placeholder="Ingresa la fecha de inicio">
+                    <input type="date" class="form-control" id="FechaInicio" name="FechaInicio" value="{{old('FechaInicio',$cupon->FechaInicio->format('Y-m-d'))}}"   placeholder="Ingresa la fecha de inicio">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Fecha Fin:</label>
+                <label for="texto">Fecha Fin:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaFin" name="FechaFin" value="{{old('FechaFin',$cupon->FechaFin)}}"   placeholder="Ingresa la fecha de fin">
+                    <input type="date" class="form-control" id="FechaFin" name="FechaFin" value="{{old('FechaFin',$cupon->FechaFin->format('Y-m-d'))}}"   placeholder="Ingresa la fecha de fin">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Fecha Limite de Uso:</label>
+                <label for="texto">Fecha Limite de Uso:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="FechaLimiteUso" name="FechaLimiteUso" value="{{old('FechaLimiteUso',$cupon->FechaLimiteUso)}}"   placeholder="Ingresa la fecha limite de uso">
+                    <input type="date" class="form-control" id="FechaLimiteUso" name="FechaLimiteUso" value="{{old('FechaLimiteUso',$cupon->FechaLimiteUso->format('Y-m-d'))}}"   placeholder="Ingresa la fecha limite de uso">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Descripcion:</label>
+                <label for="texto">Descripcion:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="{{old('Descripcion',$cupon->Descripcion)}}"   placeholder="Ingresa la descripcion">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Otros Detalles:</label>
+                <label for="texto">Otros Detalles:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="OtrosDetalles" name="OtrosDetalles" value="{{old('OtrosDetalles',$cupon->OtrosDetalles)}}"   placeholder="Ingresa otros detalles">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Disponibilidad:</label>
+                <label for="texto">Disponibilidad:</label>
                 <div class="input-group">
                     <input type="number" class="form-control" id="Disponibilidad" name="Disponibilidad" value="{{old('Disponibilidad',$cupon->Disponibilidad)}}"   placeholder="Ingresa la cantidad disponible" step="1"  min=1 oninput="validity.valid||(value='');">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Imagen:</label>
+                <label for="texto">Imagen:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="imagen" name="imagen" value="{{old('imagen',$cupon->imagen)}}"   placeholder="Ingresa la imagen">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', $cupon->imagen) }}" placeholder="Ingresa la imagen" accept="image/*">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>  
                 </div>
             </div>
+            @if ($cupon->imagen)
+            <div class="form-group"> 
+                <label >Imagen Previa: </label>{{ old('imagen', $cupon->imagen) }}<br>
+                <img src="{{ asset('img/' . $cupon->imagen) }}" alt="Vista previa de la imagen" width="200">
+            </div>
+        @endif
             <div class="form-group">
-                <label for="nacionalidad">Cantidad Vendido:</label>
+                <label for="texto">Cantidad Vendido:</label>
                 <div class="input-group">
                     <input type="number" class="form-control" id="CantidadVendido" name="CantidadVendido" value="{{old('CantidadVendido',$cupon->CantidadVendido)}}"   placeholder="Ingresa la cantidad de cupones vendidos" step="1"  min=0 oninput="validity.valid||(value='');">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="nacionalidad">Estado:</label>
+                <label for="texto">Estado:</label>
                 <div class="input-group">
                     <input type="number" class="form-control" id="Estado" name="Estado" value="{{old('Estado',$cupon->Estado)}}"  placeholder="Ingresa el estado" step="1"  min=1 oninput="validity.valid||(value='');">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>

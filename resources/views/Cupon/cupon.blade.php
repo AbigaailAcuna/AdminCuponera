@@ -59,7 +59,7 @@
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Opciones</div>
-                        <a class="nav-link" href="{{url('/empresa/')}}">
+                        <a class="nav-link" href="{{url('/cupon/')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Regresar
                         </a>

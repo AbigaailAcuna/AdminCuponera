@@ -18,6 +18,7 @@
         <tr>
             <th>Codigo de Rubro</th>
             <th>Rubro</th>
+            <th>Opciones</th>
                 
         </tr>
         @foreach ($categoria as $cat)

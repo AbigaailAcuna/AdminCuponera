@@ -7,6 +7,7 @@ use App\Http\Controllers\CuponController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TrabajadorController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::controller(PrincipalController::class)->group(function()
     Route::get('/cupon','cupones');
     Route::get('/categoria','categorias');
     Route::get('/trabajadores','trabajadores');
+    Route::get('/venta','venta');
+    
     
     
     
@@ -63,3 +66,4 @@ Route::resource('cupon', CuponController::class);
 Route::resource('categoria', CategoriaController::class);
 Route::resource('trabajador', TrabajadorController::class);
 Route::resource('cliente', ClienteController::class);
+Route::resource('venta', VentaController::class);

@@ -38,7 +38,7 @@
                         <td>{{ $active->FechaFin }}</td>
                         <td>{{ $active->FechaLimiteUso }}</td>
                         <td>{{ $active->Descripcion }}</td>
-                        <td>{{ $active->FechaCompra }}</td>
+                        <td>{{ $active->FechaCompra->format('Y-m-d') }}</td>
                           
                      </tr>
             @endforeach

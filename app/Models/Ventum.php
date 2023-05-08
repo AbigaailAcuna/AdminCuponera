@@ -30,7 +30,7 @@ class Ventum extends Model
 	protected $casts = [
 		'IdCliente' => 'int',
 		'Cantidad' => 'int',
-		'FechaCompra' => 'datetime',
+		'FechaCompra' => 'date',
 		'Estado' => 'int'
 	];
 

@@ -38,7 +38,7 @@
                         <td>{{ $vencido->FechaFin }}</td>
                         <td>{{ $vencido->FechaLimiteUso }}</td>
                         <td>{{ $vencido->Descripcion }}</td>
-                        <td>{{ $vencido->FechaCompra }}</td>
+                        <td>{{ $vencido->FechaCompra->format('Y-m-d') }}</td>
                           
                      </tr>
             @endforeach
