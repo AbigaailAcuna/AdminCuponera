@@ -77,13 +77,6 @@
                 <input type="text" class="form-control" id="Rubro" name="Rubro" value="{{old('Rubro',$trabajador->Rubro)}}"  placeholder="Ingresa el Rubro">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
-        </div>   
-        <div class="form-group">
-            <label for="texto">Clave:</label>
-            <div class="input-group">
-                <input type="text" class="form-control" id="Clave" name="Clave" value="{{old('Clave',$trabajador->Clave)}}"  placeholder="Ingresa su clave">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-            </div>
         </div>            
         <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
         <a class="btn btn-danger" href="{{ route('trabajador.index')}}">Cancelar</a>
