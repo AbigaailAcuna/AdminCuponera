@@ -20,11 +20,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Correo
  * @property string $Rubro
  * @property float $Comision
+ * @property string $Clave
+ * @property int $Rol
  *
  * @package App\Models
  */
 class Empresar extends Model
 {
+    
 	protected $table = 'empresar';
 	protected $primaryKey = 'IdEmpresaR';
 	public $incrementing = false;
@@ -43,7 +46,9 @@ class Empresar extends Model
 		'Telefono',
 		'Correo',
 		'Rubro',
-		'Comision'
+		'Comision',
+		'Clave',
+		'Rol'
 	];
 
 	public function cuponr()
