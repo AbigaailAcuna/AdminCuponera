@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CorreoEnv;
 use App\Models\Cuponr;
 use App\Models\Empresar;
 use App\Models\Categorium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 
 class EmpresaController extends Controller
@@ -36,13 +39,20 @@ class EmpresaController extends Controller
         $request->validate([
             'IdEmpresaR'=>['required','regex:/^EMP\d{3}$/'],
             'IdCategeoria'=>['required'],
-           'NombreEmpresa'=>['required'],
-           'Direccion'=>['required'],
-           'NombreContacto'=>['required','regex:/^[a-zA-Z ]+$/'],
-           'Telefono'=>['required','numeric','digits:8'],
-           'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
-           'Comision'=>['required','numeric']
+            'NombreEmpresa'=>['required'],
+            'Direccion'=>['required'],
+            'NombreContacto'=>['required','regex:/^[a-zA-Z ]+$/'],
+            'Telefono'=>['required','numeric','digits:8'],
+            'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
+            'Comision'=>['required','numeric']
         ]);
+        
+        $claveGenerada = Str::random(15);
+        $correo = $request->input('Correo');
+        $rol = 2;
+
+        Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
+
         $empresa=new Empresar();
         $empresa->IdEmpresaR=$request->input('IdEmpresaR');
         $empresa->IdCategeoria=$request->input('IdCategeoria');
@@ -52,6 +62,8 @@ class EmpresaController extends Controller
         $empresa->Telefono=$request->input('Telefono');
         $empresa->Correo=$request->input('Correo');
         $empresa->Comision=$request->input('Comision');
+        $empresa->Clave=$claveGenerada;
+        $empresa->Rol=$rol;
         $empresa->save();
         if($empresa==true)
             {
