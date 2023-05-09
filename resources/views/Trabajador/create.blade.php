@@ -71,26 +71,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="texto">Rol:</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" id="Rol" name="Rol" value="{{old('Rol')}}"  placeholder="Ingresa el Rol del Empleado">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="texto">Rubro:</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="Rubro" name="Rubro" value="{{old('Rubro')}}"  placeholder="Ingresa el Rubro">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
-            </div>   
-            <div class="form-group">
-                <label for="texto">Clave:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="Clave" name="Clave" value="{{old('Clave')}}"  placeholder="Ingresa su clave">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                </div>
-            </div>            
+            </div>           
             <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
             <a class="btn btn-danger" href="{{ route('trabajador.index')}}">Cancelar</a>
         </form>
