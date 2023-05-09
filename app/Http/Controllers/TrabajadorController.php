@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CorreoEnv;
 use App\Models\Empleado;
 use App\Models\Empresar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class TrabajadorController extends Controller
 {
@@ -34,13 +37,20 @@ class TrabajadorController extends Controller
         $request->validate([
             'IdEmpleado'=>['required','regex:/^TRA\d{3}$/'],
             'IdEmpresaR'=>['required'],
-           'Nombres'=>['required','regex:/^[a-zA-Z ]+$/'],
-           'Apellidos'=>['required','regex:/^[a-zA-Z ]+$/'],
-           'Rubro'=>['required','regex:/^[a-zA-Z ]+$/'],
-           'Telefono'=>['required','numeric','digits:8'],
-           'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
-           'Rol'=>['required']
+            'Nombres'=>['required','regex:/^[a-zA-Z ]+$/'],
+            'Apellidos'=>['required','regex:/^[a-zA-Z ]+$/'],
+            'Rubro'=>['required','regex:/^[a-zA-Z ]+$/'],
+            'Telefono'=>['required','numeric','digits:8'],
+            'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
         ]);
+        
+        $claveGenerada = Str::random(15);
+        $rol = 3;
+        
+        $correo = $request->input('Correo');
+
+        Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
+        
         $empleados=new Empleado();
         $empleados->IdEmpleado=$request->input('IdEmpleado');
         $empleados->IdEmpresaR=$request->input('IdEmpresaR');
@@ -49,8 +59,8 @@ class TrabajadorController extends Controller
         $empleados->Rubro=$request->input('Rubro');
         $empleados->Telefono=$request->input('Telefono');
         $empleados->Correo=$request->input('Correo');
-        $empleados->Rol=$request->input('Rol');
-        $empleados->Clave=$request->input('Clave');
+        $empleados->Rol=$rol;
+        $empleados->Clave=$claveGenerada;
         
         $empleados->save();
         if($empleados==true)
@@ -109,7 +119,6 @@ class TrabajadorController extends Controller
         $trabajador->Rubro=$request->input('Rubro');
         $trabajador->Telefono=$request->input('Telefono');
         $trabajador->Correo=$request->input('Correo');
-        $trabajador->Clave=$request->input('Clave');
         
         $trabajador->save();
         if($trabajador==true)
