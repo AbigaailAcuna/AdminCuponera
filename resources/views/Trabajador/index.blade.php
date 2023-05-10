@@ -38,7 +38,7 @@
             <td>{{$Empleado->Nombres}}</td>
             <td>{{$Empleado->Apellidos}}</td>
             <td>{{$Empleado->Telefono}}</td>
-            <td>{{$Empleado->Correo}}</td>
+            <td>{{$Empleado->Email}}</td>
             <td>{{$Empleado->Rol}}</td>
             <td>{{$Empleado->Rubro}}</td>
             <td><a class="btn btn-success" href="{{ route('trabajador.edit', $Empleado->IdEmpleado) }}"><i class="bi bi-pencil-square"></i></a>
