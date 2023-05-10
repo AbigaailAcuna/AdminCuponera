@@ -48,6 +48,7 @@ class EmpresaController extends Controller
         ]);
         
         $claveGenerada = Str::random(15);
+        $clave = hash('sha256', $claveGenerada);
         $correo = $request->input('Correo');
         $rol = 2;
 
@@ -60,9 +61,9 @@ class EmpresaController extends Controller
         $empresa->Direccion=$request->input('Direccion');
         $empresa->NombreContacto=$request->input('NombreContacto');
         $empresa->Telefono=$request->input('Telefono');
-        $empresa->Correo=$request->input('Correo');
+        $empresa->Email=$request->input('Correo');
         $empresa->Comision=$request->input('Comision');
-        $empresa->Clave=$claveGenerada;
+        $empresa->Password=$clave;
         $empresa->Rol=$rol;
         $empresa->save();
         if($empresa==true)
@@ -142,12 +143,12 @@ class EmpresaController extends Controller
            'Comision'=>['required','numeric']
         ]);
 
-       $empresa->IdCategeoria=$request->input('IdCategeoria');
+        $empresa->IdCategeoria=$request->input('IdCategeoria');
         $empresa->NombreEmpresa=$request->input('NombreEmpresa');
         $empresa->Direccion=$request->input('Direccion');
         $empresa->NombreContacto=$request->input('NombreContacto');
         $empresa->Telefono=$request->input('Telefono');
-        $empresa->Correo=$request->input('Correo');
+        $empresa->Email=$request->input('Correo');
         $empresa->Comision=$request->input('Comision');
         $empresa->save();
         if($empresa==true)
