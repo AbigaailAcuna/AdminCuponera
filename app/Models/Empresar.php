@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Correo
  * @property string $Rubro
  * @property float $Comision
- * @property string $Clave
+ * @property string $Password
  * @property int $Rol
  *
  * @package App\Models
@@ -44,10 +44,10 @@ class Empresar extends Model
 		'Direccion',
 		'NombreContacto',
 		'Telefono',
-		'Correo',
+		'Email',
 		'Rubro',
 		'Comision',
-		'Clave',
+		'Password',
 		'Rol'
 	];
 

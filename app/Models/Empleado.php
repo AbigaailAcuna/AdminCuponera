@@ -16,8 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Nombres
  * @property string $Apellidos
  * @property string $Telefono
- * @property string $Correo
- * @property string $Clave
+ * @property string $Email
+ * @property string $Password
  * @property int $Rol
  * @property string $Rubro
  *
@@ -39,8 +39,8 @@ class Empleado extends Model
 		'Nombres',
 		'Apellidos',
 		'Telefono',
-		'Correo',
-		'Clave',
+		'Email',
+		'Password',
 		'Rol',
 		'Rubro'
 	];

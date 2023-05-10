@@ -13,7 +13,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
- 
+    @if(session('user'))
+    
         <h3>Panel de Administracion</h3>
 
             <div class="card-body">
@@ -22,6 +23,7 @@
     <tr>
         <td colspan="3">
             <div class="row">
+                @if(session('user')->Rol == 2)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -31,7 +33,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                
+                @if(session('user')->Rol == 1)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -41,7 +45,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                
+                @if(session('user')->Rol == 1)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -51,7 +57,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                
+                @if(session('user')->Rol == 1)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -61,7 +69,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                
+                @if(session('user')->Rol == 2)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -71,7 +81,9 @@
                         </div>
                     </div>
                 </div>
-
+                @endif
+                
+                @if(session('user')->Rol == 2)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -82,10 +94,15 @@
                     </div>
                 </div>
             </div>
+            @endif
         </td>
     </tr>
 
                 </table>
+                @else
+                <h3>Inicia sesión para ver el contenido</h3>
+                <p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+                @endif
             </div>
             </div>
       </div>

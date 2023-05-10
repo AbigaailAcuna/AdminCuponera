@@ -38,7 +38,7 @@
             <td>{{$empre->Direccion}}</td>
             <td>{{$empre->NombreContacto}}</td>
             <td>{{$empre->Telefono}}</td>
-            <td>{{$empre->Correo}}</td>
+            <td>{{$empre->Email}}</td>
             <td>{{$empre->Comision}}</td>
             <td><a class="btn btn-success" href="{{ route('empresa.edit', $empre->IdEmpresaR) }}"><i class="bi bi-pencil-square"></i></a>
             <a class="btn btn-primary" href="{{ route('empresa.show', $empre->IdEmpresaR) }}"><i class="bi bi-eye-fill"></i></a>

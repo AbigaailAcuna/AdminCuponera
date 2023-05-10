@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\LoginController;
 use App\Models\Cuponv;
 
 /*
@@ -88,3 +89,7 @@ Route::resource('categoria', CategoriaController::class);
 Route::resource('trabajador', TrabajadorController::class);
 Route::resource('cliente', ClienteController::class);
 Route::resource('venta', VentaController::class);
+
+Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/login',[LoginController::class,'check'])->name('login.check');
