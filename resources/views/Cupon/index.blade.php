@@ -15,6 +15,7 @@
         <br>
         <a class="btn btn-primary" href="{{ route('cupon.create')}}"><i class="bi bi-plus-circle"></i> Ofertar Cupon</a>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
+        <a class="btn btn-primary" href="/cupon/filtros"><i class=""></i> Filtros</a>
         <div class="row">
 
     @if ($cupon)

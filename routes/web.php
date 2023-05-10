@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\VentaController;
+use App\Models\Cuponv;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,15 @@ Route::controller(VentaController::class)->group(function()
 {
 
     Route::get('/venta/{id}/pdf','pdf');
+
+}
+
+);
+
+Route::controller(CuponController::class)->group(function()
+{
+
+    Route::get('/cupon/filtros', 'filtros');
 
 }
 

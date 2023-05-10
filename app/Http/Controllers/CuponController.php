@@ -28,6 +28,20 @@ class CuponController extends Controller
         return view('Cupon.create',compact('empresas'));
     }
 
+    public function filtros(request $request)
+    {
+       
+        $indice = $request->get('indice');
+        if($indice == null){
+            $indice = 4;
+        }
+        $cupon=Cuponr::where('Estado','=',$indice)->get();
+
+        return view('Cupon.filtros',compact('cupon'));
+    }
+
+    
+
     /**
      * Store a newly created resource in storage.
      */
@@ -105,6 +119,7 @@ class CuponController extends Controller
         return view('Cupon.edit',compact('cupon'));
     }
 
+    
     /**
      * Update the specified resource in storage.
      */
