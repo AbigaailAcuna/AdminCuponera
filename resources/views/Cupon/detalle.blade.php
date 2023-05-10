@@ -23,61 +23,73 @@
 </nav>
 
 <div class="container" >
+<h2 class="mt-5 text-center">Detalle de la oferta</h1>
 
-<h2 class="mt-5 text-center">Lista de Cupones</h1>
-<form action="" method="">
-<label for="">Filtrar estado: </label>
-<select name="indice">
-    <option value="4" {{Request::get('indice') == '4'}}>En espera</option>
-    <option value="6" {{Request::get('indice') == '6'}}>Rechazados</option>
-    <option value="1" {{Request::get('indice') == '1'}}>Activos</option>
-    <option value="3" {{Request::get('indice') == '3'}}>Vencidos</option>
-    <option value="5" {{Request::get('indice') == '5'}}>Descartados</option>
-</select>
-<button type="submit" class="btn btn-success">Filtrar</button>
-</form>
-@if($cupon)
 
 
 
 <table class="table  mt-4">
-  <thead>
-    <tr>
-      
-      <th scope="col">IdCupon</th>
-      <th scope="col">Empresa</th>
-      <th scope="col">Titulo</th>
-      <th scope="col">Estado</th>
-      <th scope="col">Detalles</th>
-    </tr>
-  </thead>
+
   <tbody>
-  @foreach($cupon as $elemento)
+ 
+
+  
   
     <tr>
-      
-      <td>{{$elemento->IdCuponR}}</td>
-      <td>{{$elemento->IdEmpresaR}}</td>
-      <td>{{$elemento->Titulo}}</td>
-      <td>{{$elemento->Estado}}</td>
-      
-      
-      
-      <td><p type="button" class="btn btn-primary"><a href='/cupon/detalle/{{$elemento->IdCuponR}}' style="text-decoration:none; color:white;">Mas detalles</a></p></td>
-      
+      <th class="table-dark">IdCupon</th>
+      <td>{{$cupon->IdCuponR}}</td>
     </tr>
-    
-    @endforeach
+    <tr>
+      <th class="table-dark">IdEmpresa</th>
+      <td>{{$cupon->IdEmpresaR}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Titulo</th>
+      <td>{{$cupon->Titulo}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Precio Regular</th>
+      <td>${{$cupon->PrecioRegular}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Precio Oferta</th>
+      <td>${{$cupon->PrecioOferta}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark" >Precio Cupon</th>
+      <td>${{$cupon->PrecioCupon}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Fecha Inicio</th>
+      <td>{{$cupon->FechaInicio}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Fecha Fin</th>
+      <td>{{$cupon->FechaFin}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Fecha Limite</th>
+      <td>{{$cupon->FechaLimiteUso}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Descripcion</th>
+      <td>{{$cupon->Descripcion}}</td>
+    </tr>
+    <tr>
+      <th class="table-dark">Estado</th>
+      <td>{{$cupon->Estado}}</td>
+    </tr>
+   
   
+    
+   
+    
  
   </tbody>
 </table>
-@endif
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
 
