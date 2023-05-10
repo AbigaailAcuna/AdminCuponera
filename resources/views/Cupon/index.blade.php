@@ -8,9 +8,11 @@
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
-@section('title2','Lista de Cupones')
+
 <br>
 <div class="container">
+    <h1 class='text-center'>Lista de cupones</h1>
+        <br>
         <a class="btn btn-primary" href="{{ route('cupon.create')}}"><i class="bi bi-plus-circle"></i> Ofertar Cupon</a>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
         <div class="row">

@@ -8,18 +8,22 @@
     @section('title2','Creando Empleado')
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
-       <div class="container">
-        <div class="row-center">
-            @if($errors->all())
-            <div class="alert alert-danger">
-                <ul>
-                @foreach($errors->all() as $err)
-                    <li>{{$err}}</li>
-                @endforeach
-                </ul>
-            </div>
-           @endif
-            <div class="col-md-7">
+<div class="container">
+    
+    <div class="row-center">
+        
+       @if($errors->all())
+        <div class="alert alert-danger">
+            <ul>
+            @foreach($errors->all() as $err)
+                <li>{{$err}}</li>
+            @endforeach
+            </ul>
+        </div>
+       @endif
+     <div class="col-md-7">
+        <h2>Agregando trabajador</h2>
+        <br>
        <form role="form" action="{{route('trabajador.store')}}" method="POST">
             @csrf
             <div class="form-group">
@@ -69,14 +73,7 @@
                     <input type="text" class="form-control" id="Correo" name="Correo" value="{{old('Correo')}}"   placeholder="Ingresa el correo">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="texto">Rubro:</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="Rubro" name="Rubro" value="{{old('Rubro')}}"  placeholder="Ingresa el Rubro">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                </div>
-            </div>           
+            </div>     
             <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
             <a class="btn btn-danger" href="{{ route('trabajador.index')}}">Cancelar</a>
         </form>

@@ -8,9 +8,9 @@
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
-@section('title2','Historial de Ventas')
-<br>
 <div class="container">
+    <h1 class='text-center'>Lista de ventas</h1>
+        <br>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
         <div class="row">
     @if ($Ventas)
@@ -31,7 +31,7 @@
             <td>{{$Venta->IdCliente}}</td>
             <td>{{$Venta->Cantidad}}</td>
             <td>{{$Venta->FechaCompra->format('Y-m-d')}}</td>
-            <td><a class="btn btn-success" href=""><i class="bi bi-file-earmark-pdf"></i></a>
+            <td><a class="btn btn-success" href="/venta/{{ $Venta->IdVenta }}/pdf" target="_blank"><i class="bi bi-file-earmark-pdf"></i></a>
            
         </tr>
         @endforeach    

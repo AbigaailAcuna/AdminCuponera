@@ -7,8 +7,10 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
 <div class="container">
+    
     <div class="row-center">
-        @if($errors->all())
+        
+       @if($errors->all())
         <div class="alert alert-danger">
             <ul>
             @foreach($errors->all() as $err)
@@ -17,7 +19,9 @@
             </ul>
         </div>
        @endif
-        <div class="col-md-7">
+     <div class="col-md-7">
+        <h2>Editando trabajador</h2>
+        <br>
    <form role="form" action="{{route('trabajador.update',$trabajador->IdEmpleado)}}" method="POST">
         @csrf
         @meThod('PUT')
@@ -71,13 +75,7 @@
                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="texto">Rubro:</label>
-            <div class="input-group">
-                <input type="text" class="form-control" id="Rubro" name="Rubro" value="{{old('Rubro',$trabajador->Rubro)}}"  placeholder="Ingresa el Rubro">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-            </div>
-        </div>            
+          
         <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
         <a class="btn btn-danger" href="{{ route('trabajador.index')}}">Cancelar</a>
     </form>

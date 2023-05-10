@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
 use App\Models\Ventum;
 use Illuminate\Http\Request;
 
@@ -15,52 +16,35 @@ class VentaController extends Controller
         $Ventas=Ventum::get();
         return view('Venta.index',compact('Ventas'));
     }
-
+    public function show(Ventum $ventum)
+    {
+        return view('Venta.pdf',compact('ventum'));
+    }
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function pdf($id)
     {
-        //
-    }
+        // Retrieve the sales data for the specified ID
+        
+        $ventas = Ventum::select('venta.*', 'cliente.*', 'cuponr.*')
+    ->join('cliente', 'cliente.IdCliente', '=', 'venta.IdCliente')
+    ->join('cuponr', 'cuponr.IdCuponR', '=', 'venta.IdCuponR')
+    ->where('venta.IdVenta', $id)
+    ->first();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        // Generate the PDF using dompdf
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('Venta.pdf', compact('ventas')));
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+    
+        // Return the PDF as a response
+        $pdfContent = $dompdf->output();
+        return response($pdfContent)
+                    ->header('Content-Type', 'application/pdf')
+                    ->header('Content-Disposition', 'inline; filename="Venta.pdf"');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    
 }

@@ -7,8 +7,10 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
   
-<div class="row">
-    <div class=" col-md-7">
+<div class="container">
+    
+    <div class="row-center">
+        
        @if($errors->all())
         <div class="alert alert-danger">
             <ul>
@@ -18,12 +20,9 @@
             </ul>
         </div>
        @endif
-       <style>
-        
-       </style>
-       <div class="container">
-        <div class="row">
-            <div class="col-md-7">
+     <div class="col-md-7">
+        <h2>Editando cupon</h2>
+        <br>
        <form role="form" action="{{route('cupon.update',$cupon->IdCuponR)}}" method="POST">
             @csrf
             @method('PUT')
@@ -113,12 +112,33 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="texto">Imagen:</label>
                 <div class="input-group">
-                    <input type="file" class="form-control" id="imagen" name="imagen" value="{{ old('imagen', $cupon->imagen) }}" placeholder="Ingresa la imagen" accept="image/*">
+                    <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Ingresa la imagen" accept="image/*">
+                    
+                    <input type="hidden" name="anterior" value="{{$anterior=$cupon->imagen;}}">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>  
                 </div>
             </div>
+            
+            <script>
+                $(document).ready(function() {
+                    $('form').submit(function() {
+                        var imagenInput = $('#imagen');
+                        var imagenValue = imagenInput.val();
+                        if (imagenValue === '') {
+                            // No new file selected, use previous image file
+                            var anteriorInput = $('input[name="anterior"]');
+                            imagenInput.removeAttr('name');
+                            anteriorInput.attr('name', 'imagen');
+                        } else {
+                            // New file selected, use the selected file
+                            $('input[name="anterior"]').remove();
+                        }
+                        return true;
+                    });
+                });
+            </script>
+            
             @if ($cupon->imagen)
             <div class="form-group"> 
                 <label >Imagen Previa: </label>{{ old('imagen', $cupon->imagen) }}<br>

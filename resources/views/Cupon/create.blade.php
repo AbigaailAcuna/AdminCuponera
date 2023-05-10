@@ -4,7 +4,7 @@
 
 @section('content')
 <head>
-    @section('title2','Ofertando Cupón')
+
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
   
@@ -22,7 +22,7 @@
         </div>
        @endif
      <div class="col-md-7">
-    
+        <h2>Agregando cupon</h2>
        <form role="form" action="{{route('cupon.store')}}" method="POST">
             @csrf
             <div class="form-group">

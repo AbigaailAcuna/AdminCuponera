@@ -7,9 +7,11 @@
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
-@section('title2','Lista de Empresas')
+
 
 <div class="container">
+    <h1 class='text-center'>Lista de empresas</h1>
+        <br>
         <a class="btn btn-primary" href="{{ route('empresa.create')}}"><i class="bi bi-plus-circle"></i> Agregar Nueva Empresa</a>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
         <div class="row">

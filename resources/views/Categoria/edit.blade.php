@@ -7,8 +7,10 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
   
-<div class="row">
-    <div class=" col-md-7">
+<div class="container">
+    
+    <div class="row-center">
+        
        @if($errors->all())
         <div class="alert alert-danger">
             <ul>
@@ -18,16 +20,19 @@
             </ul>
         </div>
        @endif
-       <style>
-        
-       </style>
-       <div class="container">
-        <div class="row">
-            <div class="col-md-7">
+     <div class="col-md-7">
+        <h2>Editando rubro</h2>
+        <br>
        <form role="form" action="{{route('categoria.update',$categorium->IdCategoria)}}" method="POST">
             @csrf
             @method('PUT')
-
+            <div class="form-group">
+                <label for="codigo">Codigo rubro:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" readonly name="IdCategoria" id="IdCategoria" value="{{old('NombreCategoria',$categorium->IdCategoria)}}"  placeholder="Ingresa el nombre del rubro" >
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="codigo">Rubro:</label>
                 <div class="input-group">

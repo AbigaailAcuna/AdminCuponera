@@ -19,51 +19,7 @@ class ClienteController extends Controller
         return view('Cliente.index',compact('cliente'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    /*public function create()
-    {
-        return view('Cliente.create');
-    }*/
-
-    /**
-     * Store a newly created resource in storage.
-     */
- /*   public function store(Request $request)
-    {
-        $request->validate([
-            'IdCliente'=>['required'],
-            'Nombres'=>['required'],
-            'Apellidos'=>['required'],
-            'DUI'=>['required'],
-            'Telefono'=>['required'],
-            'Correo'=>['required'],
-            'Direccion'=>['required'],
-        ]);
-        $cliente=new Cliente();
-        $cliente->IdCliente=$request->input('IdCliente');
-        $cliente->Nombres=$request->input('Nombres');
-
-
-        $cliente->save();
-        if($categoria==true)
-            {
-                $alerta = [
-                    'title' => 'Rubro guardado con éxito',
-                    'icon' => 'success'
-                ];
-                return to_route('categoria.index')->with('alerta', $alerta);  
-                
-            }else{
-                $alerta = [
-                    'title' => 'Rubro no guardado',
-                    'icon' => 'error'
-                ];
-                return redirect()->back()->with('alerta', $alerta);
-            }
-    }*/
-
+   
     /**
      * Display the specified resource.
      */
@@ -71,30 +27,6 @@ class ClienteController extends Controller
     {
         return view('Cliente.cliente',compact('cliente'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    /*public function edit(string $id)
-    {
-        //
-    }*/
-
-    /**
-     * Update the specified resource in storage.
-     */
-   /* public function update(Request $request, string $id)
-    {
-        //
-    }*/
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    /*public function destroy(string $id)
-    {
-        //
-    }*/
     
     public function active(string $id){
         $activoOffer = Ventum::with('cuponv')

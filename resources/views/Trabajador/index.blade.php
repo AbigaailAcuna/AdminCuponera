@@ -7,9 +7,11 @@
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
-@section('title2','Lista de Empleados')
+
 
 <div class="container">
+    <h1 class='text-center'>Lista de trabajadores</h1>
+        <br>
         <a class="btn btn-primary" href="{{ route('trabajador.create')}}"><i class="bi bi-plus-circle"></i> Registrar Empleado</a>
         <a class="btn btn-primary" href="/index"><i class=""></i> Regresar</a>
         <div class="row">

@@ -7,8 +7,10 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
   
-<div class="row">
-    <div class=" col-md-7">
+<div class="container">
+    
+    <div class="row-center">
+        
        @if($errors->all())
         <div class="alert alert-danger">
             <ul>
@@ -18,13 +20,9 @@
             </ul>
         </div>
        @endif
-
-       <style>
-        
-       </style>
-       <div class="container">
-        <div class="row">
-            <div class="col-md-7">
+     <div class="col-md-7">
+        <h2>Agregando empresa</h2>
+        <br>
        <form role="form" action="{{route('empresa.store')}}" method="POST">
             @csrf
             <div class="form-group">

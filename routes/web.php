@@ -61,6 +61,16 @@ Route::controller(ClienteController::class)->group(function()
 
 );
 
+Route::controller(VentaController::class)->group(function()
+{
+
+    Route::get('/venta/{id}/pdf','pdf');
+
+}
+
+);
+
+
 Route::resource('empresa', EmpresaController::class);
 Route::resource('cupon', CuponController::class);
 Route::resource('categoria', CategoriaController::class);

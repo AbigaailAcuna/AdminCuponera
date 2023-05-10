@@ -39,7 +39,6 @@ class TrabajadorController extends Controller
             'IdEmpresaR'=>['required'],
             'Nombres'=>['required','regex:/^[a-zA-Z ]+$/'],
             'Apellidos'=>['required','regex:/^[a-zA-Z ]+$/'],
-            'Rubro'=>['required','regex:/^[a-zA-Z ]+$/'],
             'Telefono'=>['required','numeric','digits:8'],
             'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
         ]);
@@ -56,7 +55,6 @@ class TrabajadorController extends Controller
         $empleados->IdEmpresaR=$request->input('IdEmpresaR');
         $empleados->Nombres=$request->input('Nombres');
         $empleados->Apellidos=$request->input('Apellidos');
-        $empleados->Rubro=$request->input('Rubro');
         $empleados->Telefono=$request->input('Telefono');
         $empleados->Correo=$request->input('Correo');
         $empleados->Rol=$rol;
@@ -107,7 +105,6 @@ class TrabajadorController extends Controller
         $request->validate([
            'Nombres'=>['required','regex:/^[a-zA-Z ]+$/'],
            'Apellidos'=>['required','regex:/^[a-zA-Z ]+$/'],
-           'Rubro'=>['required'],
            'Telefono'=>['required','numeric','digits:8'],
            'Correo'=>['required','email', 'ends_with:.com,.net,.org,.edu,.gov,.mil,.sv'],
 
@@ -116,7 +113,6 @@ class TrabajadorController extends Controller
 
         $trabajador->Nombres=$request->input('Nombres');
         $trabajador->Apellidos=$request->input('Apellidos');
-        $trabajador->Rubro=$request->input('Rubro');
         $trabajador->Telefono=$request->input('Telefono');
         $trabajador->Correo=$request->input('Correo');
         
