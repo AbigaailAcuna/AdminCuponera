@@ -44,6 +44,8 @@ class TrabajadorController extends Controller
         ]);
         
         $claveGenerada = Str::random(15);
+        $clave = hash('sha256', $claveGenerada);
+        $correo = $request->input('Correo');
         $rol = 3;
         
         $correo = $request->input('Correo');
@@ -56,9 +58,9 @@ class TrabajadorController extends Controller
         $empleados->Nombres=$request->input('Nombres');
         $empleados->Apellidos=$request->input('Apellidos');
         $empleados->Telefono=$request->input('Telefono');
-        $empleados->Correo=$request->input('Correo');
+        $empleados->Email=$request->input('Correo');
         $empleados->Rol=$rol;
-        $empleados->Clave=$claveGenerada;
+        $empleados->Password=$clave;
         
         $empleados->save();
         if($empleados==true)
@@ -114,7 +116,7 @@ class TrabajadorController extends Controller
         $trabajador->Nombres=$request->input('Nombres');
         $trabajador->Apellidos=$request->input('Apellidos');
         $trabajador->Telefono=$request->input('Telefono');
-        $trabajador->Correo=$request->input('Correo');
+        $trabajador->Email=$request->input('Correo');
         
         $trabajador->save();
         if($trabajador==true)
