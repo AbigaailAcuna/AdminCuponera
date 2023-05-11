@@ -87,6 +87,8 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
+                @if(session('user'))
+                @if(session('user')->Rol == 1)
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">{{$cliente->Nombres}} {{$cliente->Apellidos}}</h1>
                     <ol class="breadcrumb mb-4">
@@ -193,5 +195,10 @@
     <script src="js/datatables-simple-demo.js"></script>
 
 </body>
+@else
+<h3>Usted no tiene permisos para acceder a esta pagina</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
+@endif
 </html>
        

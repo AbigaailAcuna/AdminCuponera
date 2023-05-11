@@ -52,7 +52,7 @@
         </div>
 </div>
 @else
-<h3>Inicia sesión para ver el contenido</h3>
+<h3>Usted no tiene permisos para acceder a esta pagina</h3>
 <p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
 @endif
 @endif

@@ -23,7 +23,7 @@
     <tr>
         <td colspan="3">
             <div class="row">
-                @if(session('user')->Rol == 1 || 3)
+                @if(session('user')->Rol == 1 || 2)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
