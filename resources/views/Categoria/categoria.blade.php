@@ -12,6 +12,7 @@
     <link href="{{ asset('css/admincss.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+@if(session('user'))
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
@@ -124,5 +125,9 @@
     <script src="js/datatables-simple-demo.js"></script>
 
 </body>
+@else
+<h3>Inicia sesión para ver el contenido</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
 </html>
        
