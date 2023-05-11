@@ -7,7 +7,7 @@
   <!-- Other head elements -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="{{ asset('css/principal.css') }}" rel="stylesheet">
-
+  <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
 
 <div class="container">
@@ -109,5 +109,13 @@
 
   </div>
 </div>
-
+@if(session('alerta'))
+<script>
+    swal({
+        title: "{{ session('alerta.title') }}",
+        text: "{{ session('alerta.text') }}",
+        icon: "{{ session('alerta.icon') }}",
+    });
+</script>
+@endif 
 @endsection

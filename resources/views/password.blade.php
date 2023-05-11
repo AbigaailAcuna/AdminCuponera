@@ -7,6 +7,7 @@
 <head>
     
     <link href="http://localhost/AdminCuponera/resources/css/login.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
 
 <div class="login-page">
@@ -19,4 +20,13 @@
         </form>
     </div>
 </div>
+@if(session('alerta'))
+<script>
+    swal({
+        title: "{{ session('alerta.title') }}",
+        text: "{{ session('alerta.text') }}",
+        icon: "{{ session('alerta.icon') }}",
+    });
+</script>
+@endif 
 @endsection
