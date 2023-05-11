@@ -25,6 +25,7 @@ class LoginController extends Controller
             if($user->Password ==hash('SHA256',$clave)){
                 $request->session()->put('user', $user);
                 if($user->Password_c == 1){
+
                     return redirect('/index');
                 }
                 else {
@@ -63,8 +64,14 @@ class LoginController extends Controller
     
                 $user->Password = hash('SHA256', $nuevaContrasena);
                 $user->save();
-        
-                return redirect('/index')->with('success', 'Contraseña actualizada correctamente');
+
+                $alerta = [
+                    'title' => 'Contraseña actualizada correctamente',
+                    'icon' => 'success'
+                ];
+    
+
+                return redirect('/index')->with('alerta', $alerta);
             }
             else {
                 $nuevaContrasena = $request->input('nueva_contrasena');
@@ -73,7 +80,13 @@ class LoginController extends Controller
                 $user->Password_c = 1;
                 $user->save();
         
-                return redirect('/index')->with('success', 'Contraseña actualizada correctamente');
+                $alerta = [
+                    'title' => 'Contraseña actualizada correctamente',
+                    'icon' => 'success'
+                ];
+    
+
+                return redirect('/index')->with('alerta', $alerta);
             }
 
         }
@@ -92,10 +105,24 @@ class LoginController extends Controller
             $usuario->save();
 
             Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
-            return view('login');
+            
+            $alerta = [
+                'title' => 'Recibio en su correo su contraseña temporal',
+                'icon' => 'info'
+            ];
+
+
+            return redirect('/login')->with('alerta', $alerta);
         } 
         else {
-            return view('Email');
+            $alerta = [
+                'title' => 'Ingrese una direccion de correo valida',
+                'icon' => 'error'
+            ];
+
+
+            return redirect('/Email')->with('alerta', $alerta);
+
         }
 
     }
