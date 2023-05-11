@@ -10,6 +10,7 @@
 
 <br>
 @if(session('user'))
+@if(session('user')->Rol == 2)
 <div class="container">
     <h1 class='text-center'>Lista de trabajadores</h1>
         <br>
@@ -71,7 +72,8 @@
 </div>
 </div>
 @else
-<h3>Inicia sesión para ver el contenido</h3>
-<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+<h3>Usted no tiene los permisos necesarios para ver esta página</h3>
 @endif
+@endif
+
 @endsection

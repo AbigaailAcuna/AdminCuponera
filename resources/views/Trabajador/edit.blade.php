@@ -3,6 +3,9 @@
 @section('title','Editando Empleado')
 
 @section('content')
+<br>
+@if(session('user'))
+@if(session('user')->Rol == 2)
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
@@ -93,4 +96,7 @@
    </div>
    </div>
 </div>
+@else
+<h3>Usted no tiene los permisos necesarios para ver esta página</h3>
+@endif
 @endsection
