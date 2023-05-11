@@ -10,6 +10,7 @@
 </head>
 <br>
 @if(session('user'))
+@if(session('user')->Rol == 1 || session('user')->Rol ==2)
 <br>
 <div class="container">
     <h1 class='text-center'>Lista de cupones</h1>
@@ -92,7 +93,11 @@
         </div>
 </div>
 @else
-<h3>Inicia sesión para ver el contenido</h3>
+<h3>Usted no tiene permisos para acceder a esta pagina</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no tienes los permisos necesarios.</p>
+@endif
+@else
+<h3>Inicie sesion para ver contenido</h3>
 <p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
 @endif
 @endsection

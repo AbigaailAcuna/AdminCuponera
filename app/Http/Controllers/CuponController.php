@@ -20,18 +20,25 @@ class CuponController extends Controller
      */
     public function index()
     {
-        if(session('user')->Rol == 2)
+        if(session('user'))
         {
-            $correo=session('user')->Email;
-       $idEmpresas = Empresar::where('Email', $correo)->pluck('IdEmpresaR');
-       $cupon=Cuponr::where('IdEmpresaR', $idEmpresas)->get();
-       return view('Cupon.index',compact('cupon'));
-       }
-       else
-       {
-            $cupon=Cuponr::get();
-            return view('Cupon.index',compact('cupon'));
+            if(session('user')->Rol == 2)
+            {
+                $correo=session('user')->Email;
+           $idEmpresas = Empresar::where('Email', $correo)->pluck('IdEmpresaR');
+           $cupon=Cuponr::where('IdEmpresaR', $idEmpresas)->get();
+           return view('Cupon.index',compact('cupon'));
+           }
+           else
+           {
+                $cupon=Cuponr::get();
+                return view('Cupon.index',compact('cupon'));
+            }
         }
+        else{
+            return view('Cupon.index');
+        }
+     
     }
 
     /**

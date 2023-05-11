@@ -68,12 +68,16 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
+                    @if(session('user'))
                     {{ session('user')->Email }} 
+                    @endif
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
+                @if(session('user'))
+@if(session('user')->Rol == 1 || session('user')->Rol ==2)
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
@@ -150,5 +154,13 @@
     <script src="js/datatables-simple-demo.js"></script>
 
 </body>
+@else
+<h3>Usted no tiene permisos para acceder a esta pagina</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no tienes los permisos necesarios.</p>
+@endif
+@else
+<h3>Inicie sesion para ver contenido</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
 </html>
        
