@@ -75,6 +75,7 @@
         <div id="layoutSidenav_content">
             <main>
                 @if(session('user'))
+                @if(session('user')->Rol == 1)
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
@@ -128,6 +129,7 @@
 @else
 <h3>Inicia sesión para ver el contenido</h3>
 <p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
 @endif
 </html>
        

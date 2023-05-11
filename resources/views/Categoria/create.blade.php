@@ -10,6 +10,7 @@
 
        
 @if(session('user'))
+@if(session('user')->Rol == 1)
        <div class="container">
         <div class="row-center">
 
@@ -62,5 +63,6 @@
        @else
        <h3>Inicia sesión para ver el contenido</h3>
        <p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+       @endif
        @endif
 @endsection
