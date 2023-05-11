@@ -77,6 +77,7 @@ Route::controller(CuponController::class)->group(function()
 
     Route::get('/cupon/filtros', 'filtros');
     Route::get('/cupon/detalle/{id}', 'detalle');
+    Route::post('/cupon/detalle/{id}', 'cambiarestado');
 
 }
 
