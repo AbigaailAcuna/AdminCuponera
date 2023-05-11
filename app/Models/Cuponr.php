@@ -50,6 +50,7 @@ class Cuponr extends Model
 	];
 
 	protected $fillable = [
+		
 		'IdEmpresaR',
 		'Titulo',
 		'PrecioRegular',

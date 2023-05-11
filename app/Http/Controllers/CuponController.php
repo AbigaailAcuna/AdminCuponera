@@ -40,7 +40,12 @@ class CuponController extends Controller
         return view('Cupon.filtros',compact('cupon'));
     }
 
-    
+    public function detalle($IdCuponR)
+    {
+        $cupon=DB::table('cuponr')->where('IdCuponR',$IdCuponR)->first();
+        
+        return view('Cupon.detalle', ['cupon' => $cupon]);
+    }
 
     /**
      * Store a newly created resource in storage.
