@@ -48,9 +48,8 @@ class TrabajadorController extends Controller
         $correo = $request->input('Correo');
         $rol = 3;
         
-        $correo = $request->input('Correo');
-
-        Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
+        $titulo = "Se ha completado su registro";
+        $msg ="Gracias por usar los servicios de la cuponera, tu cuenta ha sido registrada, tu contraseña es:";
         
         $empleados=new Empleado();
         $empleados->IdEmpleado=$request->input('IdEmpleado');
