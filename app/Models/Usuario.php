@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $rol
  * @property string $Email
  * @property string $Password
+ * @property int $Password_c
  * 
  * @package App\Models
  */
@@ -29,7 +30,9 @@ class Usuario extends Model
     protected $fillable = [
 		'Rol',
 		'Email',
-		'Password'
+		'Password',
+		'Password_c'
 	];
 
 }
+
