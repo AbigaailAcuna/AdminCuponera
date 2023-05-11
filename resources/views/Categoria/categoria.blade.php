@@ -50,6 +50,7 @@
                                     Authentication
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
+                                @if(session('user'))
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="login.html">Login</a>
@@ -67,6 +68,7 @@
                         
                     </div>
                 </div>
+            
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
                     Start Bootstrap
@@ -74,7 +76,7 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            @if(session('user'))
+
             <main>
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
