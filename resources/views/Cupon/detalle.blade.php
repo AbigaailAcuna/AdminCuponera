@@ -77,7 +77,7 @@
     </tr>
     <tr>
       <th class="table-dark">Estado</th>
-      <td>{{$cupon->Estado}}</td>
+      <td>{{$estado[0]->NombreEstado}}</td>
     </tr>
    
   

@@ -10,6 +10,8 @@ use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\LoginController;
 use App\Models\Cuponv;
+use App\Mail\comentarioMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,10 +80,13 @@ Route::controller(CuponController::class)->group(function()
     Route::get('/cupon/filtros', 'filtros');
     Route::get('/cupon/detalle/{id}', 'detalle');
     Route::post('/cupon/detalle/{id}', 'cambiarestado');
+    Route::post('/Emails/Comentario', 'comentario');
 
 }
 
 );
+
+//Route::get('Emails/Comentario',[CuponController::class,'show']);
 
 
 Route::resource('empresa', EmpresaController::class);

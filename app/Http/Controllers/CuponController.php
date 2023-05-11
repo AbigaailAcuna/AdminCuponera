@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cuponr;
+use App\Models\Cuponv;
 use App\Models\Empresar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\comentarioMailable;
+use Illuminate\Support\Facades\Mail;
 
 
 class CuponController extends Controller
@@ -36,6 +39,7 @@ class CuponController extends Controller
             $indice = 4;
         }
         $cupon=Cuponr::where('Estado','=',$indice)->get();
+        
 
         return view('Cupon.filtros',compact('cupon'));
     }
@@ -43,16 +47,41 @@ class CuponController extends Controller
     public function detalle($IdCuponR)
     {
         $cupon=DB::table('cuponr')->where('IdCuponR',$IdCuponR)->first();
+        $estado = DB::select("select NombreEstado from estadocupon r inner join cuponr e on e.Estado =  r.IdEstado where IdCuponR = '$IdCuponR'");
         
-        return view('Cupon.detalle', ['cupon' => $cupon]);
+        return view('Cupon.detalle', ['cupon' => $cupon, 'estado'=>$estado]);
+    }
+
+    public function comentario(Request $request){
+        $correo = $request->input('correo');
+        Mail::to($correo)->send(new comentarioMailable);
+        $alerta = [
+            'title' => 'Mensaje enviado con exito',
+            'icon' => 'success'
+        ];
+        return redirect('/cupon')->with('alerta', $alerta);
+        
     }
 
 
     public function cambiarestado(Request $request, $IdCuponR){
+        
         $cupon = DB::table('cuponr')->where('IdCuponR', $IdCuponR)->update(array('Estado'=>$request->input('indice')));
         $cupon=DB::table('cuponr')->where('IdCuponR',$IdCuponR)->first();
-        return view('Cupon.detalle', ['cupon' => $cupon]);
-        
+        $alerta = [
+            'title' => 'Estado actualizado con exito',
+            'icon' => 'success'
+        ];
+        $correo = DB::select("select Email from cuponr r inner join empresar e on e.IdEmpresaR =  r.IdEmpresaR where IdCuponR = '$IdCuponR'");
+        if($request->input('indice')==6){
+            
+            return view('Cupon.mensaje', ['correo' => $correo]);
+
+        }
+        else{
+            
+        return view('Cupon.detalle', ['cupon' => $cupon])->with('alerta',$alerta);
+        }
 
     }
 
