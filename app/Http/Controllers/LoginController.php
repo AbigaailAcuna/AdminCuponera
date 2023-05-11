@@ -104,7 +104,10 @@ class LoginController extends Controller
             $usuario->Password = $clave;
             $usuario->save();
 
-            Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
+            $titulo = "Nueva contraseña";
+            $msg ="Se ha generado una contraseña para que recupere su contraseña, su nueva contraseña es:";
+            
+            Mail::to($correo)->send(new CorreoEnv ($claveGenerada, $msg, $titulo));
             
             $alerta = [
                 'title' => 'Recibio en su correo su contraseña temporal',
