@@ -49,8 +49,8 @@
     </nav>
   </header>
 <div>
-  <h3>Se ha completado su registro</h3>
-  <p>Gracias por usar los servicios de la cuponera, tu cuenta ha sido registrada, tu contraseña es: <strong>{{ $clave }}</strong></p>
+  <h3>{{ $title }}</h3>
+  <p>{{ $msg }}<strong>{{ $clave }}</strong></p>
 </div>
 <div>
   
