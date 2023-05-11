@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuponr;
 use App\Models\Empresar;
+use App\Models\Usuario;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +17,18 @@ class CuponController extends Controller
      */
     public function index()
     {
-        $cupon=Cuponr::get();
-        return view('Cupon.index',compact('cupon'));
+        if(session('user')->Rol == 2)
+        {
+            $correo=session('user')->Email;
+       $idEmpresas = Empresar::where('Email', $correo)->pluck('IdEmpresaR');
+       $cupon=Cuponr::where('IdEmpresaR', $idEmpresas)->get();
+       return view('Cupon.index',compact('cupon'));
+       }
+       else
+       {
+            $cupon=Cuponr::get();
+            return view('Cupon.index',compact('cupon'));
+        }
     }
 
     /**
