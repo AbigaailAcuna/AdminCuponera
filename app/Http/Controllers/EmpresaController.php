@@ -52,9 +52,8 @@ class EmpresaController extends Controller
         $correo = $request->input('Correo');
         $rol = 2;
 
-        $correo = $request->input('Correo');
         $titulo = "Se ha completado su registro";
-        $msg ="Gracias por usar los servicios de la cuponera, tu cuenta ha sido registrada, tu contraseña es:";
+        $msg ="Gracias por usar los servicios de la cuponera, tu cuenta ha sizdo registrada, tu contraseña es:";
 
         Mail::to($correo)->send(new CorreoEnv ($claveGenerada, $msg, $titulo));
 
