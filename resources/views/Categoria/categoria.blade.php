@@ -38,7 +38,7 @@
             </li>
         </ul>
     </nav>
-    @if(session('user'))
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -74,6 +74,7 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            @if(session('user'))
             <main>
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
