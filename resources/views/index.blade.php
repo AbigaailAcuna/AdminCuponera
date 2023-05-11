@@ -83,7 +83,7 @@
                 </div>
                 @endif
                 
-                @if(session('user')->Rol == 2)
+                @if(session('user')->Rol == 1)
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">

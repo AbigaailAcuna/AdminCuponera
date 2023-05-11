@@ -9,6 +9,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\LoginController;
+
 use App\Models\Cuponv;
 
 /*
@@ -76,8 +77,11 @@ Route::controller(CuponController::class)->group(function()
 {
 
     Route::get('/cupon/filtros', 'filtros');
+<<<<<<< HEAD
     Route::get('/cupon/detalle/{id}', 'detalle');
     Route::post('/cupon/detalle/{id}', 'cambiarestado');
+=======
+>>>>>>> 8871fc32a4ca08f7fcb5a61376ea02e885464001
 
 }
 

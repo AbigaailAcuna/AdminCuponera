@@ -49,7 +49,6 @@ class CuponController extends Controller
 
     public function cambiarestado(Request $request, $IdCuponR){
         $cupon = DB::table('cuponr')->where('IdCuponR', $IdCuponR)->update(array('Estado'=>$request->input('indice')));
-
         $cupon=DB::table('cuponr')->where('IdCuponR',$IdCuponR)->first();
         return view('Cupon.detalle', ['cupon' => $cupon]);
         
