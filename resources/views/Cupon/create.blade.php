@@ -131,10 +131,7 @@
                 <div class="input-group">
                     <input type="hidden" class="form-control" id="Estado" name="Estado" value="4"   placeholder="Ingresa el estado">
                 </div>
-            </div>
-            
-            
-                        
+            </div>            
             <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
             <a class="btn btn-danger" href="/cupon">Cancelar</a>
         </form>

@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
 <h1 class="text-center">Cupones Canjeados</h1>
-
+@if(session('user'))
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
@@ -48,3 +48,7 @@
 </div>
 </div>
 <a href="{{ route('cliente.show', $canjeado->IdCliente) }}" class="btn btn-primary">Regresar</a>
+@else
+<h3>Inicia sesión para ver el contenido</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
