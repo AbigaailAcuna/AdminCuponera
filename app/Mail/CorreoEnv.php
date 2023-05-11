@@ -13,15 +13,18 @@ class CorreoEnv extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Registro de usuario";
     public $clave;
+    Public $msg;
+    Public $title;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($claveGenerada)
+    public function __construct($claveGenerada, $msg, $title)
     {
         $this-> clave = $claveGenerada;
+        $this-> msg = $msg;
+        $this-> title = $title;
     }
 
     /**
