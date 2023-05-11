@@ -35,24 +35,18 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                               <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url('/index') }}">Inicio</a></li>
-                              @if(session('user'))
-                              <li class="nav-item">
-                                    <p>{{ session('user')->Email }}</p>
-                              </li>
-                              <li class="nav-item">
+                              @if(session('user'))                  
                                     <form class="d-flex" method="GET" action="{{ route('password.change') }}">
                                           @csrf
                                           <button class="btn btn-light me-md-2" type="submit">Cambiar contraseña</button>
-                                    </form>
-                              </li>
-                              <li class="nav-item">
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <form class="d-flex" action="{{ route('logout') }}" method="POST">
+                                    </form>        
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                                         
+                                      <form class="d-flex" action="{{ route('logout') }}" method="POST">
                                           @csrf
                                           <button class="btn btn-light me-md-2" type="submit">Cerrar sesión</button>
                                     </form>
                                     </div>
-                              </li>
+                          
                               @else 
                               <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('login') }}">Iniciar sesión</a></li>
                               <li class="nav-item"><a class="nav-link active" href="{{ route('Email.send') }}">¿Olvidó su contraseña?</a></li>
