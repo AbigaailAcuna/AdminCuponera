@@ -50,7 +50,6 @@
                                     Authentication
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                @if(session('user'))
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="login.html">Login</a>
@@ -64,20 +63,18 @@
                         <a class="nav-link" href="{{url('/categoria/')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Regresar
-                        </a>
-                        
+                        </a>      
                     </div>
                 </div>
-            
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    {{ session('user')->Email }} 
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
-
             <main>
+                @if(session('user'))
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
                         <div class="card-header">
