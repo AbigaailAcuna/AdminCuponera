@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
 <br>
+@if(session('user'))
 <div class="container">
         <h1 class='text-center'>Lista de rubros</h1>
         <br>
@@ -54,4 +55,8 @@
 @endif   
         </div>
 </div>
+@else
+<h3>Inicia sesión para ver el contenido</h3>
+<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+@endif
 @endsection
