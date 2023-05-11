@@ -6,6 +6,7 @@
 @section('content')
 <br>
 @if(session('user'))
+@if(session('user')->Rol == 1)
 <head>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 </head>
@@ -41,7 +42,7 @@
      </div>
 </div>
 @else
-<h3>Inicia sesión para ver el contenido</h3>
-<p>La página de Administración de la cuponera no puede mostrarte nada porque no has iniciado sesión.</p>
+<h3>Usted no tiene los permisos necesarios para ver esta página</h3>
+@endif
 @endif
 @endsection
