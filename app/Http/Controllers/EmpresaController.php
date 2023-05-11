@@ -52,7 +52,11 @@ class EmpresaController extends Controller
         $correo = $request->input('Correo');
         $rol = 2;
 
-        Mail::to($correo)->send(new CorreoEnv ($claveGenerada));
+        $correo = $request->input('Correo');
+        $titulo = "Se ha completado su registro";
+        $msg ="Gracias por usar los servicios de la cuponera, tu cuenta ha sido registrada, tu contraseña es:";
+
+        Mail::to($correo)->send(new CorreoEnv ($claveGenerada, $msg, $titulo));
 
         $empresa=new Empresar();
         $empresa->IdEmpresaR=$request->input('IdEmpresaR');
